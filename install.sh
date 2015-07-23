@@ -1,7 +1,6 @@
 #!/bin/bash
 
 apt-get install -y autoconf cmake libpopt-dev libtalloc-dev libtevent-dev libbsd-dev comerr.dev mingw32 mingw-w64 python-elixir ldap-utils rwho rsh-client x11-apps finger libpcap-dev masscan discover backdoor-factory winbind
-# veil-evasion veil-catapult
 
 service postgresql start
 service metasploit start
@@ -21,8 +20,6 @@ cd /usr/share/nmap/scripts
 wget http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz
 tar xzf nmap_nse_vulscan-2.0.tar.gz
 echo 'alias nmapvul="nmap -sV -script=vulscan/vulscan.nse "' >> ~/.bashrc
-# ( -script-args vulscandb=scipvuldb.csv / exploitdb.csv / osvdb.csv ... )
-# ( More args -> http://www.computec.ch/projekte/vulscan/?s=documentation )
 
 mkdir /root/Desktop/foofus/
 cd /root/Desktop/foofus/
@@ -32,7 +29,6 @@ wget http://www.foofus.net/jmk/tools/owa/OWALightFindUsers.pl
 wget http://www.foofus.net/jmk/tools/owa/OWAFindUsers.pl
 wget http://www.foofus.net/jmk/tools/owa/OWAFindUsersOld.pl
 
-# Install MingW Base and C++
 cd /tmp/
 wget http://garr.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe
 wine mingw-get-setup.exe
@@ -65,9 +61,6 @@ wget http://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
 tar xf phantomjs-1.9.2-linux-x86_64.tar.bz2
 cp /root/Desktop/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 
-# Step 1: Select option 1 - Choose OS (/opt)
-# Step 2: Select option 4 - Compile Binaries (/opt)
-# Step 3: Select option 5 - Exit
 cd /tmp/
 git clone https://github.com/liorvh/smbexec.git
 cd /tmp/smbexec/
@@ -99,8 +92,6 @@ mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
 update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
 
-rm -rf /tmp/*
-
 cd /root/
 wget http://fc08.deviantart.net/fs70/f/2013/264/5/7/kali_by_typograflaw-d6n6m8l.png
 gsettings set org.gnome.desktop.background picture-uri "file:///root/kali_by_typograflaw-d6n6m8l.png"
@@ -109,4 +100,5 @@ echo "[+] All tools installed successfully!"
 echo "[+] ~~~ Happy Hacking! ~~~"
 echo ""
 
+rm -rf /tmp/*
 rm -rf /root/Desktop/kali_tools.sh
