@@ -1,6 +1,7 @@
 #!/bin/bash
 
 apt-get install -y autoconf cmake libpopt-dev libtalloc-dev libtevent-dev libbsd-dev comerr.dev mingw32 mingw-w64 python-elixir ldap-utils rwho rsh-client x11-apps finger libpcap-dev masscan discover backdoor-factory winbind
+# veil-evasion veil-catapult
 
 service postgresql start
 service metasploit start
@@ -40,7 +41,7 @@ wget http://gojhonny.com/misc/mingw_bin.zip
 unzip -d /root/.wine/drive_c/windows mingw_bin.zip
 
 cd /root/Desktop/
-git clone https://github.com/byt3bl33d3r/MITMf mitmf
+git clone https://github.com/liorvh/MITMf mitmf
 cd mitmf/
 ./kali_setup.sh
 
@@ -51,11 +52,12 @@ gzip -d crackstation-human-only.txt.gz
 wget http://downloads.skullsecurity.org/passwords/rockyou.txt.bz2
 bzip2 -d rockyou.txt.bz2
 svn checkout http://fuzzdb.googlecode.com/svn/trunk/ fuzzdb
-git clone https://github.com/g0tmi1k/SecLists.git seclists
+git clone https://github.com/liorvh/SecLists.git seclists
 
 cd /root/Desktop/
-git clone https://github.com/asolino/patator.git
-git clone https://github.com/secforce/sparta.git
+git clone https://github.com/liorvh/patator.git
+git clone https://github.com/liorvh/sparta.git
+
 git clone https://bitbucket.org/LaNMaSteR53/peepingtom.git
 cd /root/Desktop/peepingtom/
 wget https://gist.githubusercontent.com/nopslider/5984316/raw/423b02c53d225fe8dfb4e2df9a20bc800cc78e2c/gnmap.pl
@@ -67,7 +69,7 @@ cp /root/Desktop/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 # Step 2: Select option 4 - Compile Binaries (/opt)
 # Step 3: Select option 5 - Exit
 cd /tmp/
-git clone https://github.com/pentestgeek/smbexec.git
+git clone https://github.com/liorvh/smbexec.git
 cd /tmp/smbexec/
 echo "[+] Select option 1"
 /tmp/smbexec/install.sh
@@ -107,4 +109,4 @@ echo "[+] All tools installed successfully!"
 echo "[+] ~~~ Happy Hacking! ~~~"
 echo ""
 
-rm -rf /root/Desktop/install.sh
+rm -rf /root/Desktop/kali_tools.sh
