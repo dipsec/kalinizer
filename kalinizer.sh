@@ -4,12 +4,14 @@
 apt-get install -y autoconf cmake libpopt-dev libtalloc-dev libtevent-dev libbsd-dev comerr.dev mingw32 mingw-w64 python-elixir ldap-utils rwho rsh-client x11-apps finger libpcap-dev masscan discover backdoor-factory winbind
 update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
 
-# Veil Framework
-mkdir /opt/veil
-cd /opt/veil
-wget https://raw.githubusercontent.com/Veil-Framework/Veil/master/Install.sh
-chmod +x Install.sh
-./Install.sh -c
+# Services
+service postgresql start
+service metasploit start
+service apache2 start
+
+update-rc.d postgresql enable
+update-rc.d metasploit enable
+update-rc.d apache2 enable
 
 # Nmaps
 cd /usr/share/nmap/scripts
@@ -64,18 +66,6 @@ wget http://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
 tar xf phantomjs-1.9.2-linux-x86_64.tar.bz2
 cp /root/Desktop/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 
-# Smbexec
-cd /tmp/
-git clone https://github.com/liorvh/smbexec.git
-cd /tmp/smbexec/
-echo "[+] Select option 1"
-/tmp/smbexec/install.sh
-echo "[*] Where did you install SMBexec?: "
-read smbexecpath
-$smbexecpath/smbexec/install.sh
-cd $smbexecpath/smbexec/
-bundle install
-
 # Wce
 mkdir /opt/wce/
 cd /tmp/
@@ -94,14 +84,24 @@ unzip bypassuac.zip
 cp bypassuac/bypassuac.rb /opt/metasploit/apps/pro/msf3/scripts/meterpreter/
 mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
-# Services
-service postgresql start
-service metasploit start
-service apache2 start
+# Veil Framework
+mkdir /opt/veil
+cd /opt/veil
+wget https://raw.githubusercontent.com/Veil-Framework/Veil/master/Install.sh
+chmod +x Install.sh
+./Install.sh -c
 
-update-rc.d postgresql enable
-update-rc.d metasploit enable
-update-rc.d apache2 enable
+# Smbexec
+cd /tmp/
+git clone https://github.com/liorvh/smbexec.git
+cd /tmp/smbexec/
+echo "[+] Select option 1"
+/tmp/smbexec/install.sh
+echo "[*] Where did you install SMBexec?: "
+read smbexecpath
+$smbexecpath/smbexec/install.sh
+cd $smbexecpath/smbexec/
+bundle install
 
 # Wallpaper
 cd /root/
