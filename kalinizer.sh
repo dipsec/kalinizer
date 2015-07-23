@@ -113,4 +113,4 @@ echo "[+] ~~~ Happy Hacking! ~~~"
 echo ""
 
 rm -rf /tmp/*
-rm -rf /root/Desktop/kali_tools.sh
+rm -rf /root/Desktop/kalinizer.sh
