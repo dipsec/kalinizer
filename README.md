@@ -1,0 +1,2 @@
+# kalinizer
+Kali Weaponizer Script
