@@ -90,11 +90,11 @@ unzip bypassuac.zip
 cp bypassuac/bypassuac.rb /opt/metasploit/apps/pro/msf3/scripts/meterpreter/
 mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
-update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
-
 cd /root/
 wget http://fc08.deviantart.net/fs70/f/2013/264/5/7/kali_by_typograflaw-d6n6m8l.png
 gsettings set org.gnome.desktop.background picture-uri "file:///root/kali_by_typograflaw-d6n6m8l.png"
+
+update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
 
 echo "[+] All tools installed successfully!"
 echo "[+] ~~~ Happy Hacking! ~~~"
