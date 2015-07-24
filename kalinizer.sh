@@ -112,5 +112,6 @@ echo "[+] All tools installed successfully!"
 echo "[+] ~~~ Happy Hacking! ~~~"
 echo ""
 
+ln -s /opt/ /root/Desktop/opt
 rm -rf /tmp/*
 rm -rf /root/Desktop/kalinizer.sh
