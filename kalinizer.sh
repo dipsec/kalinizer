@@ -66,6 +66,12 @@ wget http://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
 tar xf phantomjs-1.9.2-linux-x86_64.tar.bz2
 cp /root/Desktop/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 
+# Portmapper
+cd /opt/
+git clone https://github.com/kaklakariada/portmapper.git
+cd portmapper
+./gradlew build
+
 # Wce
 mkdir /opt/wce/
 cd /tmp/
@@ -113,5 +119,7 @@ echo "[+] ~~~ Happy Hacking! ~~~"
 echo ""
 
 ln -s /opt/ /root/Desktop/opt
+ln -s /var/www /root/Desktop/www
+ln -s /usr/share /root/Desktop/share
 rm -rf /tmp/*
 rm -rf /root/Desktop/kalinizer.sh
