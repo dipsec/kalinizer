@@ -66,6 +66,16 @@ wget http://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
 tar xf phantomjs-1.9.2-linux-x86_64.tar.bz2
 cp /root/Desktop/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 
+# Frenzy
+echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
+curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+docker pull b00stfr3ak/ubuntu-phishingfrenzy
+echo "service apache2 stop" > /root/Desktop/runFrenzy.sh
+echo "sleep 2" >> /root/Desktop/runFrenzy.sh
+echo "docker run -d -p 80:80 b00stfr3ak/ubuntu-phishingfrenzy" >> /root/Desktop/runFrenzy.sh
+echo "firefox http://phishingfrenzy.local/admins/sign_in" >> /root/Desktop/runFrenzy.sh
+chmod +x /root/Desktop/runFrenzy.sh
+
 # Portmapper
 cd /opt/
 git clone https://github.com/kaklakariada/portmapper.git
@@ -121,5 +131,6 @@ echo ""
 ln -s /opt/ /root/Desktop/opt
 ln -s /var/www /root/Desktop/www
 ln -s /usr/share /root/Desktop/share
+ln -s /etc/hosts /root/Desktop/hosts
 rm -rf /tmp/*
 rm -rf /root/Desktop/kalinizer.sh
