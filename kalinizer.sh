@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# Deps
+# Sources (run again after reboot)
+cd /etc/apt/ && rm -rf sources.list
+wget https://raw.githubusercontent.com/liorvh/kalinizer/master/sources.list
+apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
+
+# MiscDeps
 apt-get install -y autoconf cmake libpopt-dev libtalloc-dev libtevent-dev libbsd-dev comerr.dev mingw32 mingw-w64 python-elixir ldap-utils rwho rsh-client x11-apps finger libpcap-dev masscan discover backdoor-factory winbind
 update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
 
