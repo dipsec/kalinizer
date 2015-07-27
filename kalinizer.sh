@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Sources (run again after reboot)
+# Sources
 cd /etc/apt/ && rm -rf sources.list
 wget https://raw.githubusercontent.com/liorvh/kalinizer/master/sources.list
 apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -142,4 +142,4 @@ ln -s /var/www /root/Desktop/www
 ln -s /usr/share /root/Desktop/share
 ln -s /etc/hosts /root/Desktop/hosts
 rm -rf /tmp/*
-rm -rf /root/Desktop/kalinizer.sh
+scrDir=$(pwd) && rm -rf $scrDir/kalinizer.sh
