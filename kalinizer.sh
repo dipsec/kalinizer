@@ -34,14 +34,6 @@ wget http://www.foofus.net/jmk/tools/owa/OWALightFindUsers.pl
 wget http://www.foofus.net/jmk/tools/owa/OWAFindUsers.pl
 wget http://www.foofus.net/jmk/tools/owa/OWAFindUsersOld.pl
 
-# Mingw
-cd /tmp/
-wget http://garr.dl.sourceforge.net/project/mingw/Installer/mingw-get-setup.exe
-wine mingw-get-setup.exe
-cd /root/.wine/drive_c/windows
-wget http://gojhonny.com/misc/mingw_bin.zip
-unzip -d /root/.wine/drive_c/windows mingw_bin.zip
-
 # MITMf
 cd /root/Desktop/
 git clone https://github.com/liorvh/MITMf mitmf
