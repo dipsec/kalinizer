@@ -100,7 +100,7 @@ unzip bypassuac.zip
 cp bypassuac/bypassuac.rb /opt/metasploit/apps/pro/msf3/scripts/meterpreter/
 mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
-# Veil Framework
+# Veil
 mkdir /opt/veil
 cd /opt/veil
 wget https://raw.githubusercontent.com/Veil-Framework/Veil/master/Install.sh
@@ -119,14 +119,18 @@ $smbexecpath/smbexec/install.sh
 cd $smbexecpath/smbexec/
 bundle install
 
+# Autologin
+cd /etc/gdm3/ && rm -rf daemon.conf
+wget https://raw.githubusercontent.com/liorvh/kalinizer/master/daemon.conf
+
 # Wallpaper
 cd /root/
 wget http://fc08.deviantart.net/fs70/f/2013/264/5/7/kali_by_typograflaw-d6n6m8l.png
 gsettings set org.gnome.desktop.background picture-uri "file:///root/kali_by_typograflaw-d6n6m8l.png"
 
-echo "[+] All tools installed successfully!"
-echo "[+] ~~~ Happy Hacking! ~~~"
-echo ""
+echo
+echo "[+] ~~~ Boom! ~~~"
+echo
 
 ln -s /opt/ /root/Desktop/opt
 ln -s /var/www /root/Desktop/www
