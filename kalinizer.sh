@@ -74,8 +74,8 @@ mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
 # Veil
 mkdir /opt/veil && cd /opt/veil
-wget https://raw.githubusercontent.com/Veil-Framework/Veil/master/Install.sh
-chmod +x Install.sh && ./Install.sh -c
+wget https://raw.githubusercontent.com/liorvh/kalinizer/master/install.sh
+chmod +x install.sh && ./install.sh -c
 
 # Frenzy
 echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
