@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Sources
+# Links
+ln -s /opt/ /root/Desktop/opt
+ln -s /usr/share /root/Desktop/share
+ln -s /var/www /root/Desktop/www
+ln -s /etc/hosts /root/Desktop/hosts
+
+# APT
 cd /etc/apt && rm -rf sources.list
 wget https://raw.githubusercontent.com/liorvh/kalinizer/master/sources.list
-apt-get clean && apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
+apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
 # MiscDeps
 apt-get install -y autoconf cmake libpopt-dev libtalloc-dev libtevent-dev libbsd-dev comerr.dev mingw32 mingw-w64 python-elixir ldap-utils rwho rsh-client x11-apps finger libpcap-dev masscan discover backdoor-factory winbind
 update-java-alternatives --jre -s java-1.7.0-openjdk-amd64
-
-# Services
-service postgresql start && service metasploit start && service apache2 start
-update-rc.d postgresql enable && update-rc.d metasploit enable && update-rc.d apache2 enable
 
 # Nmaps
 cd /usr/share/nmap/scripts
@@ -70,29 +72,33 @@ cd /tmp/ && wget https://www.trustedsec.com/files/bypassuac.zip && unzip bypassu
 cp bypassuac/bypassuac.rb /opt/metasploit/apps/pro/msf3/scripts/meterpreter/
 mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
 
-# Frenzy
-echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
-curl -sSL https://get.docker.io/ubuntu/ | sudo sh
-docker pull b00stfr3ak/ubuntu-phishingfrenzy
-echo "service apache2 stop" > /root/Desktop/runFrenzy.sh
-echo "sleep 2" >> /root/Desktop/runFrenzy.sh
-echo "docker run -d -p 80:80 b00stfr3ak/ubuntu-phishingfrenzy" >> /root/Desktop/runFrenzy.sh
-echo "firefox http://phishingfrenzy.local/admins/sign_in" >> /root/Desktop/runFrenzy.sh
-chmod +x /root/Desktop/runFrenzy.sh
-
 # Veil
 mkdir /opt/veil && cd /opt/veil
 wget https://raw.githubusercontent.com/Veil-Framework/Veil/master/Install.sh
 chmod +x Install.sh && ./Install.sh -c
+
+# Frenzy
+echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
+curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+docker pull b00stfr3ak/ubuntu-phishingfrenzy
+echo "service apache2 stop" >> /root/Desktop/runFrenzy.sh
+echo "sleep 2" >> /root/Desktop/runFrenzy.sh
+echo "docker run -d -p 80:80 b00stfr3ak/ubuntu-phishingfrenzy" >> /root/Desktop/runFrenzy.sh
+echo "sleep 3" >> /root/Desktop/runFrenzy.sh
+echo "firefox phishingfrenzy.local" >> /root/Desktop/runFrenzy.sh
+chmod +x /root/Desktop/runFrenzy.sh
 
 # Smbexec
 cd /tmp/ && git clone https://github.com/liorvh/smbexec.git && cd /tmp/smbexec/
 echo "[+] Select option 1"
 /tmp/smbexec/install.sh
 echo "[*] Where did you install SMBexec?: "
-read smbexecpath
-$smbexecpath/smbexec/install.sh
+read smbexecpath && $smbexecpath/smbexec/install.sh
 cd $smbexecpath/smbexec/ && bundle install
+
+# Services
+service postgresql start && service metasploit start && service apache2 start
+update-rc.d postgresql enable && update-rc.d metasploit enable && update-rc.d apache2 enable
 
 # Autologin
 cd /etc/gdm3/ && rm -rf daemon.conf
@@ -107,9 +113,6 @@ echo
 echo "[+] ~~~ Boom! ~~~"
 echo
 
-ln -s /opt/ /root/Desktop/opt
-ln -s /var/www /root/Desktop/www
-ln -s /usr/share /root/Desktop/share
-ln -s /etc/hosts /root/Desktop/hosts
+apt-get clean
 rm -rf /tmp/*
-scrDir=$(pwd) && rm -rf $scrDir/kalinizer.sh
+rm -rf $0
