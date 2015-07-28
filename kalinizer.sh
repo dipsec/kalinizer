@@ -51,16 +51,6 @@ wget http://phantomjs.googlecode.com/files/phantomjs-1.9.2-linux-x86_64.tar.bz2
 tar xf phantomjs-1.9.2-linux-x86_64.tar.bz2
 cp /opt/peepingtom/phantomjs-1.9.2-linux-x86_64/bin/phantomjs .
 
-# Frenzy
-echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
-curl -sSL https://get.docker.io/ubuntu/ | sudo sh
-docker pull b00stfr3ak/ubuntu-phishingfrenzy
-echo "service apache2 stop" > /root/Desktop/runFrenzy.sh
-echo "sleep 2" >> /root/Desktop/runFrenzy.sh
-echo "docker run -d -p 80:80 b00stfr3ak/ubuntu-phishingfrenzy" >> /root/Desktop/runFrenzy.sh
-echo "firefox http://phishingfrenzy.local/admins/sign_in" >> /root/Desktop/runFrenzy.sh
-chmod +x /root/Desktop/runFrenzy.sh
-
 # Portmapper
 cd /opt/ && git clone https://github.com/kaklakariada/portmapper.git
 cd portmapper && ./gradlew build
@@ -79,6 +69,16 @@ wget https://raw.githubusercontent.com/darkoperator/powershell_scripts/master/ps
 cd /tmp/ && wget https://www.trustedsec.com/files/bypassuac.zip && unzip bypassuac.zip
 cp bypassuac/bypassuac.rb /opt/metasploit/apps/pro/msf3/scripts/meterpreter/
 mv bypassuac/uac/ /opt/metasploit/apps/pro/msf3/data/exploits/
+
+# Frenzy
+echo "0.0.0.0 phishingfrenzy.local" >> /etc/hosts
+curl -sSL https://get.docker.io/ubuntu/ | sudo sh
+docker pull b00stfr3ak/ubuntu-phishingfrenzy
+echo "service apache2 stop" > /root/Desktop/runFrenzy.sh
+echo "sleep 2" >> /root/Desktop/runFrenzy.sh
+echo "docker run -d -p 80:80 b00stfr3ak/ubuntu-phishingfrenzy" >> /root/Desktop/runFrenzy.sh
+echo "firefox http://phishingfrenzy.local/admins/sign_in" >> /root/Desktop/runFrenzy.sh
+chmod +x /root/Desktop/runFrenzy.sh
 
 # Veil
 mkdir /opt/veil && cd /opt/veil
