@@ -21,7 +21,7 @@ func_install(){
   cd ${veildir}
   echo '[*] Cloning Veil Framework Repos'
   ${gitcmd} clone https://github.com/Veil-Framework/Veil-Evasion.git
-  cd Veil-Evasion/setup && ./setup.sh silent=true
+  cd Veil-Evasion/setup && ./setup.sh -s
   cd ../..
   ${gitcmd} clone https://github.com/Veil-Framework/PowerTools.git
   ${gitcmd} clone https://github.com/Veil-Framework/Veil-Pillage.git
